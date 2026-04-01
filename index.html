@@ -3,13 +3,29 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Dictionary game</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
     </head>
     <body>
-        
+        <div id="main">
+            <select name="dictionary-language" id="dictionary-language" class="dictionary-language">
+                <option value="en">English</option>
+                <option value="ger">German</option>
+                <option value="fr">French</option>
+            </select>
+            <select name="input-language" id="input-language" class="input-language">
+                <option value="en">English</option>
+                <option value="ger">German</option>
+                <option value="fr">French</option>
+            </select>
+            <p id="timer" class="timer">Start</p>
+            <p id="dictionary-word" class="dictionary-word"></p>
+            <input type="text" id="input" class="input">
+            <button id="submit" class="submit">Submit</button>
+            <button id="switch-languages" class="switch-languages">Switch</button>
+        </div>
         <script src="dictionary-game.js" async defer></script>
     </body>
 </html>
