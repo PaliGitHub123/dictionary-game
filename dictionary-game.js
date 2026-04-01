@@ -1,11 +1,12 @@
 let timerState = false;
 let time = 60;
 const timer = document.getElementById("timer");
-const input = document.getElementById("input")
+const input = document.getElementById("input");
+const dictionarySelect = document.getElementById("dictionary-language");
+const inputSelect = document.getElementById("input-language");
 
-const languages = ["en", "fr", "ger"];
-let dictionaryLanguage = languages[1];
-let inputLanguage = languages[2];
+let dictionaryLanguage;
+let inputLanguage;
 
 document.addEventListener("click", function(e){
     if(e.target.classList.contains("submit")){
@@ -14,6 +15,10 @@ document.addEventListener("click", function(e){
 
     if(e.target.classList.contains("timer")){
         startStop();
+    }
+
+    if(e.target.classList.contains("switch-languages")){
+        switchLangs();
     }
 })
 
@@ -35,4 +40,21 @@ function startStop(){
 
 function render(){
     timer.innerHTML = time + "s";
+}
+
+function getLangs(){
+    dictionaryLanguage = dictionarySelect.value;
+    inputLanguage = inputSelect.value;
+}
+getLangs();
+
+function switchLangs(){
+    getLangs();
+    let x = dictionaryLanguage;
+    dictionaryLanguage = inputLanguage;
+    inputLanguage = x;
+    dictionarySelect.value = dictionaryLanguage;
+    inputSelect.value = inputLanguage;
+    x = "";
+    console.log(dictionaryLanguage, inputLanguage);
 }
