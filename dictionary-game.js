@@ -1,9 +1,20 @@
+// Eigene sentencer-Implementierung
+const sentencer = {
+    make: function(template) {
+        const nouns = ['apple', 'dog', 'tree', 'house', 'car', 'book', 'phone', 'computer', 'table', 'chair', 'water', 'flower', 'mountain', 'river', 'star', 'moon', 'sun', 'cloud', 'wind', 'rain'];
+        const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
+        return template.replace('{{ noun }}', randomNoun);
+    }
+};
+
 let timerState = false;
 let time = 60;
 const timer = document.getElementById("timer");
 const input = document.getElementById("input");
 const dictionarySelect = document.getElementById("dictionary-language");
 const inputSelect = document.getElementById("input-language");
+const dictionaryWord = document.getElementById("dictionary-word");
+dictionaryWord.innerHTML = sentencer.make("{{ noun }}");
 
 let dictionaryLanguage;
 let inputLanguage;
